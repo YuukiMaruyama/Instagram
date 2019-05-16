@@ -19,8 +19,8 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
-    // コメント機能の追加
-    var comments: [[String:String]] = []
+    // 追加機能　コメントを表示する
+    var comments: [String] = []
     
     init(snapshot: DataSnapshot, myId: String) {
         self.id = snapshot.key
@@ -48,10 +48,9 @@ class PostData: NSObject {
             }
         }
 
-        // コメント機能の追加
-        if let comments = valueDictionary["comments"] as? [[String:String]] {
+        // 追加機能　コメントを表示する
+        if let comments = valueDictionary["comments"] as? [String] {
             self.comments = comments
         }
-
     }
 }

@@ -163,8 +163,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // コメント機能の追加
-    // セル内のコメントボタンがタップされた時に呼ばれるメソッド
+    // 追加機能　コメントを表示する
+    // セル内のコメント登録ボタンがタップされた時に呼ばれるメソッド
     @objc func handleCommentButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: コメント登録ボタンがタップされました。")
         
@@ -176,31 +176,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
 
-        // TODO
         // 画面遷移
-print("TODO:コメント登録の画面に遷移する処理を書くよ")
-        // コメント表示の画面を表示する
-        let postCommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostComment")
-        self.present(postCommentViewController!, animated: true, completion: nil)
-        
-        
-        print("ICHIFUJI---")
-        // 遷移先のPostCommentViewControllerで宣言している変数に値を代入して渡す
-//        postCommentViewController.data1 = "1"
-        
-        // TODO
-//        // Firebaseに保存するデータの準備
-//        var comment: [String:String] = [:]
-//        postData.comments.append(comment)
-//
-//        // commentをFirebaseに保存する
-//        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-//        let comments = ["comments": postData.comments]
-//        postRef.updateChildValues(comments)
-
+        // コメント登録の画面を表示する
+        let postCommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostComment") as! PostCommentViewController
+        postCommentViewController.postData = postData
+        self.present(postCommentViewController, animated: true, completion: nil)
     }
-    // コメントを表示する
-    // セル内のコメントボタンがタップされた時に呼ばれるメソッド
+
+    // セル内のコメント表示ボタンがタップされた時に呼ばれるメソッド
     @objc func handleCommentViewButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: コメント表示ボタンがタップされました。")
         
@@ -212,38 +195,12 @@ print("TODO:コメント登録の画面に遷移する処理を書くよ")
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         
-        // TODO
-        // 画面遷移
-        print("TODO:コメント表示の画面に遷移する処理を書くよ")
         // コメント表示の画面を表示する
-        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommentView")
-        self.present(commentViewController!, animated: true, completion: nil)
-        
-
-
-        // TODO
-        //        // Firebaseに保存するデータの準備
-        //        var comment: [String:String] = [:]
-        //        postData.comments.append(comment)
-        //
-        //        // commentをFirebaseに保存する
-        //        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-        //        let comments = ["comments": postData.comments]
-        //        postRef.updateChildValues(comments)
-        
+        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommentView") as! CommentViewController
+        commentViewController.postData = postData
+        self.present(commentViewController, animated: true, completion: nil)
     }
-    
-    // コメント機能の追加
-    // コメントを登録するときに必要な情報を渡す
-    // segueを使ってないから、このメソッド、呼ばれないんみたいなんだけど。ボタンを押したときに呼ばれるメソッドを使うのが正解では？
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // segueから遷移先のPostCommentViewControllerを取得する
-        let postCommentViewController:PostCommentViewController = segue.destination as! PostCommentViewController
-        // 遷移先のPostCommentViewControllerで宣言している変数に値を代入して渡す
-        postCommentViewController.data1 = "1"
-        
-        print("KAWASAKI")
-    }
+
     // 遷移した画面から戻ってくるとき
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }

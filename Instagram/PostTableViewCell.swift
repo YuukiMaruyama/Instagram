@@ -15,20 +15,18 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-    // 追加機能　コメントボタン
+    // 追加機能　コメントを表示する
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var commentViewButton: UIButton!
     @IBOutlet weak var postCommentButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     func setPostData(_ postData: PostData) {
@@ -51,10 +49,15 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
         
-        // 追加機能　コメント表示
-        commentViewButton.setTitle("件のコメントを見る", for:.normal)
-        commentLabel.text = ("コメントは" + "件です")
-        
+        // 追加機能　コメントを表示する
+        if (postData.comments.count == 0){
+            commentViewButton.setTitle("", for:.normal)
+            commentViewButton.isEnabled = false
+            commentLabel.text = ("コメントはありません")
+        } else {
+            commentViewButton.setTitle(String(postData.comments.count) + "件のコメントを見る", for:.normal)
+            commentViewButton.isEnabled = true
+            commentLabel.text = ("コメント" + postData.comments[0])
+        }
     }
-    
 }

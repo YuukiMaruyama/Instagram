@@ -10,12 +10,20 @@ import UIKit
 
 class CommentViewController: UIViewController {
 
+    // コメントを表示するデータ
+    var postData: PostData?
+    
+    @IBOutlet weak var commentTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        var commentText = ""
+        
+        for i in 0..<postData!.comments.count {
+            commentText = commentText + postData!.comments[i] + "\n"
+        }
+        
+        commentTextView.text = commentText
     }
-    
-
-
 }

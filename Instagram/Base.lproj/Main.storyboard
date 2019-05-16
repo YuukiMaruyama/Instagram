@@ -144,30 +144,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="コメント一覧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYz-Si-9Ct">
-                                <rect key="frame" x="20" y="59" width="355" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-td-Dav">
-                                <rect key="frame" x="223" y="108" width="136" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLo-td-Dav">
+                                <rect key="frame" x="40" y="140.5" width="295" height="40"/>
                                 <state key="normal" title="戻る" backgroundImage="btn"/>
                                 <connections>
                                     <segue destination="kCr-DG-BpJ" kind="unwind" unwindAction="unwind:" id="3h7-mh-YId"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-JY-ScJ">
+                                <rect key="frame" x="40" y="200.5" width="295" height="446.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント一覧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYz-Si-9Ct">
+                                <rect key="frame" x="40" y="100" width="295" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TGR-JY-ScJ" firstAttribute="top" secondItem="XLo-td-Dav" secondAttribute="bottom" constant="20" id="12f-Ac-XE1"/>
+                            <constraint firstItem="Xs5-5U-laL" firstAttribute="trailing" secondItem="TGR-JY-ScJ" secondAttribute="trailing" constant="40" id="6zt-3g-MXs"/>
+                            <constraint firstItem="iYz-Si-9Ct" firstAttribute="top" secondItem="Xs5-5U-laL" secondAttribute="top" constant="80" id="RzZ-yb-DDd"/>
+                            <constraint firstItem="Xs5-5U-laL" firstAttribute="bottom" secondItem="TGR-JY-ScJ" secondAttribute="bottom" constant="20" id="fM3-MA-cWE"/>
+                            <constraint firstItem="TGR-JY-ScJ" firstAttribute="leading" secondItem="Xs5-5U-laL" secondAttribute="leading" constant="40" id="gMe-p9-zE5"/>
+                            <constraint firstItem="iYz-Si-9Ct" firstAttribute="leading" secondItem="Xs5-5U-laL" secondAttribute="leading" constant="40" id="khc-2O-9ok"/>
+                            <constraint firstItem="XLo-td-Dav" firstAttribute="leading" secondItem="Xs5-5U-laL" secondAttribute="leading" constant="40" id="mLV-bt-PkK"/>
+                            <constraint firstItem="XLo-td-Dav" firstAttribute="top" secondItem="iYz-Si-9Ct" secondAttribute="bottom" constant="20" id="mQp-4M-RRT"/>
+                            <constraint firstItem="Xs5-5U-laL" firstAttribute="trailing" secondItem="XLo-td-Dav" secondAttribute="trailing" constant="40" id="r6x-sQ-qsW"/>
+                            <constraint firstItem="Xs5-5U-laL" firstAttribute="trailing" secondItem="iYz-Si-9Ct" secondAttribute="trailing" constant="40" id="zoq-78-fek"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Xs5-5U-laL"/>
                     </view>
+                    <connections>
+                        <outlet property="commentTextView" destination="TGR-JY-ScJ" id="boX-PR-dzv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8W-aQ-ggD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kCr-DG-BpJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1380" y="1417"/>
+            <point key="canvasLocation" x="-474.39999999999998" y="2056.8215892053977"/>
         </scene>
         <!--Post Comment View Controller-->
         <scene sceneID="vTJ-9b-6Lk">
@@ -177,32 +197,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="コメント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4D-xM-o5k">
-                                <rect key="frame" x="84" y="105" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4D-xM-o5k">
+                                <rect key="frame" x="40" y="100" width="295" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3y-ip-Q1b">
-                                <rect key="frame" x="77" y="160" width="221" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3y-ip-Q1b">
+                                <rect key="frame" x="40" y="141" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSr-wp-i09">
-                                <rect key="frame" x="85" y="243" width="202" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSr-wp-i09">
+                                <rect key="frame" x="40" y="191" width="295" height="40"/>
                                 <state key="normal" title="コメント登録" backgroundImage="btn"/>
                                 <connections>
                                     <action selector="postComment:" destination="feF-6b-aKQ" eventType="touchUpInside" id="WAR-5C-TKk"/>
                                     <segue destination="TZp-lx-LFI" kind="unwind" unwindAction="unwind:" id="LZU-0e-20G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-Dd-4pC">
-                                <rect key="frame" x="116" y="304" width="213" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-Dd-4pC">
+                                <rect key="frame" x="40" y="251" width="295" height="40"/>
                                 <state key="normal" title="戻る" backgroundImage="btn"/>
                                 <connections>
                                     <segue destination="TZp-lx-LFI" kind="unwind" unwindAction="unwind:" id="gB5-aj-NdM"/>
@@ -210,16 +226,30 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a3y-ip-Q1b" firstAttribute="leading" secondItem="ues-vp-L2M" secondAttribute="leading" constant="40" id="9nz-MO-m7O"/>
+                            <constraint firstItem="a3y-ip-Q1b" firstAttribute="top" secondItem="d4D-xM-o5k" secondAttribute="bottom" constant="20" id="DZF-Ey-Mgm"/>
+                            <constraint firstItem="m6a-Dd-4pC" firstAttribute="leading" secondItem="ues-vp-L2M" secondAttribute="leading" constant="40" id="P9H-yE-MQ9"/>
+                            <constraint firstItem="ues-vp-L2M" firstAttribute="trailing" secondItem="RSr-wp-i09" secondAttribute="trailing" constant="40" id="PJl-lY-1kj"/>
+                            <constraint firstItem="ues-vp-L2M" firstAttribute="trailing" secondItem="a3y-ip-Q1b" secondAttribute="trailing" constant="40" id="YRg-hf-O8k"/>
+                            <constraint firstItem="ues-vp-L2M" firstAttribute="trailing" secondItem="d4D-xM-o5k" secondAttribute="trailing" constant="40" id="ayc-Jg-YIy"/>
+                            <constraint firstItem="d4D-xM-o5k" firstAttribute="leading" secondItem="ues-vp-L2M" secondAttribute="leading" constant="40" id="fam-i9-VEK"/>
+                            <constraint firstItem="ues-vp-L2M" firstAttribute="trailing" secondItem="m6a-Dd-4pC" secondAttribute="trailing" constant="40" id="jMM-q7-TDN"/>
+                            <constraint firstItem="m6a-Dd-4pC" firstAttribute="top" secondItem="RSr-wp-i09" secondAttribute="bottom" constant="20" id="n7P-FO-DuB"/>
+                            <constraint firstItem="RSr-wp-i09" firstAttribute="top" secondItem="a3y-ip-Q1b" secondAttribute="bottom" constant="20" id="pfP-Am-hy4"/>
+                            <constraint firstItem="d4D-xM-o5k" firstAttribute="top" secondItem="ues-vp-L2M" secondAttribute="top" constant="80" id="vzx-uN-f5I"/>
+                            <constraint firstItem="RSr-wp-i09" firstAttribute="leading" secondItem="ues-vp-L2M" secondAttribute="leading" constant="40" id="w2G-ag-COZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ues-vp-L2M"/>
                     </view>
                     <connections>
-                        <outlet property="comment" destination="a3y-ip-Q1b" id="TA2-Md-Nhn"/>
+                        <outlet property="commentText" destination="a3y-ip-Q1b" id="TA2-Md-Nhn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6m-yj-nQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TZp-lx-LFI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-682.39999999999998" y="1464.9175412293855"/>
+            <point key="canvasLocation" x="177" y="2057"/>
         </scene>
         <!--Image Select View Controller-->
         <scene sceneID="TI2-v4-LTc">
